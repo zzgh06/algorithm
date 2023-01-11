@@ -1,8 +1,5 @@
-n = int(input())
- 
-a = n//1000
-b = (n%1000)//100
-c = ((n%1000)%100)//10
-d = (((n%1000)%100)%10)//1
-e = a+b+c+d
-print(e)
+n = input()
+result = 0
+for i in n:
+    result += int(i)
+print(result)
