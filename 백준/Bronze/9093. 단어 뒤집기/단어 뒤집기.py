@@ -1,6 +1,11 @@
 T = int(input())
 
 for t in range(T):
-    word = list(input().split())
+    word = list(map(str, input().split()))
+    reverse_word = []
+
     for w in word:
-        print(w[::-1], end=" ")
+        reverse_word.append(w[::-1])
+    
+    answer = " ".join(reverse_word)
+    print(answer)
