@@ -1,14 +1,14 @@
-n = int(input())
-worker_dict = {}
+N = int(input())
+pe = {}
 
-for i in range(n):
-    name, log = map(str, input().split())
-    worker_dict[name] = log
-    if log == 'leave':
-        del worker_dict[name]
+for _ in range(N):
+  p, c = input().split()
 
-dict_sort = sorted(worker_dict.items(), reverse = True)
-worker_dict = dict(dict_sort) # dict( key = value, key = value)
+  if c == 'enter':
+    pe[p] = 'enter'
+  else:
+    if pe[p]:
+      del pe[p]
 
-for key in worker_dict.keys():
-    print(key)
+for people in sorted(pe, reverse=True):
+  print(people)
