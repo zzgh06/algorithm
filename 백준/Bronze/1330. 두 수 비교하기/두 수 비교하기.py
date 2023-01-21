@@ -4,5 +4,5 @@ if a > b:
     print('>')
 elif a < b:
     print('<')
-elif a == b:
+else:
     print('==')
