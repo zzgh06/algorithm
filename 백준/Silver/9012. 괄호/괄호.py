@@ -1,7 +1,8 @@
+import sys
 t = int(input())
 
 for i in range(t):
-    ps = input()
+    ps = sys.stdin.readline()
     stack = []
     for j in ps:
         if j == '(':
