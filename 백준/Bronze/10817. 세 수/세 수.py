@@ -1,3 +1,4 @@
 numbers = list(map(int, input().split()))
-numbers.sort()
-print(numbers[1])
+
+number = sorted(numbers)
+print(number[1])
