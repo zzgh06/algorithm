@@ -1,3 +1,4 @@
-num = int(input())
-for m in range(1, 10):
-    print(f'{num} * {m} = {num * m}')
+n = int(input())
+
+for i in range(1, 10):
+    print(f'{n} * {i} = {n * i}')
