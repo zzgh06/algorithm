@@ -1,6 +1,7 @@
-word = input()
-result = ''
-for w in word:
-    if w not in 'CAMBRIDGE':
-        result += w
-print(result)
+str = input()
+alpha = 'CAMBRIDGE'
+
+for i in alpha:
+    if i in str:
+        str = str.replace(i, '')
+print(str)
