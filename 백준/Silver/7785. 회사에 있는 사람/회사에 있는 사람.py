@@ -1,14 +1,17 @@
-N = int(input())
-pe = {}
+import sys
+input = sys.stdin.readline
 
-for _ in range(N):
-  p, c = input().split()
+# 딕셔너리
+n = int(input())
+office = {}
 
-  if c == 'enter':
-    pe[p] = 'enter'
-  else:
-    if pe[p]:
-      del pe[p]
+for _ in range(n):
+    name, log = map(str, input().split())
+    if log == 'enter':
+        office[name] = 'enter'
+    else:
+        del office[name]
+office = sorted(office.keys(), reverse=True)
 
-for people in sorted(pe, reverse=True):
-  print(people)
+for i in office:
+    print(i)
