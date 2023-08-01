@@ -2,25 +2,19 @@ n = int(input())
 m = int(input())
 graph = [[] for _ in range(n+1)]
 
-
 for _ in range(m):
-    v1, v2 = map(int, input().split())
-    graph[v1].append(v2)
-    graph[v2].append(v1)
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 
-visited = [False] * (n + 1)
+visited = [0] * (n+1)
 
-def dfs(start):
-    stack = [start]
-    visited[start] = True
+def dfs(graph, v, visited):
+    # 현재 노드를 방문 처리
+    visited[v] = 1
+    for i in graph[v]:
+        if visited[i] == 0:
+            dfs(graph, i, visited)
 
-    while stack:
-        cur = stack.pop()
-
-        for adj in graph[cur]:
-            if not visited[adj]:
-                visited[adj] = True
-                stack.append(adj)
-
-dfs(1)
-print(sum(visited)-1) # [False, True, True, True, False, True, True, False]
+dfs(graph, 1, visited)
+print(visited.count(1) - 1)
