@@ -1,29 +1,31 @@
 n = int(input())
-a, b = map(int, input().split())
+s, e = map(int, input().split())
 m = int(input())
-graph = [[] for _ in range(n+1)]
-visited = [False] * (n+1)
-stack = []
+
+graph = [[] for _ in range(n + 1)]
+visited = [False] * (n + 1)
+res = []
+cnt = 0
 
 for _ in range(m):
     x, y = map(int, input().split())
     graph[x].append(y)
-    graph[y].append(x) 
+    graph[y].append(x)
 
-def dfs(start, num):
-    num += 1
-    visited[start] = True
+def dfs(v, cnt):
+    cnt += 1
+    visited[v] = True
     
-    if start == b:
-        stack.append(num)
+    if v == e:
+        res.append(cnt)
     
-    for adj in graph[start]:
-        if not visited[adj]:
-            dfs(adj, num)
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(i, cnt)
 
-dfs(a, 0)
+dfs(s, cnt)
 
-if len(stack) == 0:
-    print(-1)
+if len(res) > 0:
+    print(res[0] - 1)
 else:
-    print(stack[0]-1)
+    print(-1)
