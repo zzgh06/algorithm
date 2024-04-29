@@ -10,28 +10,20 @@ function solution(N, stages) {
     var answer = [];
     let hashMap = new Map();
     
-    // 스테이지 단계
-    for (let i = 1; i <= N; i++) {
+    for (let i = 1; i <= N; i++){
         let clear = 0;
-        let fail = 0;
+        let failure = 0;
         let failureRate = 0;
         for (let j = 0; j < stages.length; j++){
-            if (i <= stages[j]) {
-                clear += 1;
-            }
+            if (i <= stages[j]){clear += 1;}
         }
-        for(let k = 0; k < stages.length; k++) {
-            if(stages[k] == i) {
-                fail += 1;
-            }
+        for (let k = 0; k < stages.length; k++){
+            if (i == stages[k]){failure += 1;}
         }
-        failureRate = fail / clear;
+        failureRate = failure / clear
         hashMap.set(i, failureRate)
     }
-    // 정렬 시 value을 기준으로 정렬
     let sortedHashMap = [...hashMap].sort((a, b) => b[1] - a[1]);
-    
-    // 내림차순 정렬된 key 값만 출력
     answer = sortedHashMap.map(hash => hash[0])
     return answer
 }
