@@ -15,15 +15,19 @@ function solution(N, stages) {
         let failure = 0;
         let failureRate = 0;
         for (let j = 0; j < stages.length; j++){
-            if (i <= stages[j]){clear += 1;}
+            if (stages[j] === i){
+                failure += 1
+            }
         }
         for (let k = 0; k < stages.length; k++){
-            if (i == stages[k]){failure += 1;}
+            if (stages[k] >= i){
+                clear += 1
+            }
         }
         failureRate = failure / clear
         hashMap.set(i, failureRate)
     }
-    let sortedHashMap = [...hashMap].sort((a, b) => b[1] - a[1]);
+    let sortedHashMap = [...hashMap].sort((a, b)=> b[1] - a[1]);
     answer = sortedHashMap.map(hash => hash[0])
     return answer
 }
