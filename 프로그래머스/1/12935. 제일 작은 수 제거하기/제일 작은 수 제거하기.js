@@ -1,6 +1,6 @@
 function solution(arr) {
-    const min = Math.min(...arr);
-    arr.splice(arr.indexOf(min), 1);
-    const answer = arr.length ? arr : [-1]
-    return answer;
+    let minNum = Math.min(...arr)
+    let answer = arr
+    answer.splice(arr.indexOf(minNum), 1)
+    return answer.length >= 1 ? answer : [-1]
 }
