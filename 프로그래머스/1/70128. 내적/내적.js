@@ -1,7 +1,7 @@
 function solution(a, b) {
-    let res = 0
-    a.forEach((a, i)=>{
-       res += a * b[i]
-    })
-    return res
+    let answer = 0;
+    for (let i = 0; i < a.length; i ++){
+        answer += a[i] * b[i]
+    }
+    return answer;
 }
