@@ -1,10 +1,6 @@
 function solution(price, money, count) {
-    for (let i = 1; i < count + 1; i++){
+    for (let i = 1; i <= count; i++){
         money -= price * i
     }
-    if (money > 0) {
-        return 0
-    } else {
-        return Math.abs(money)
-    }
+    return money > 0 ? 0 : Math.abs(money)
 }
