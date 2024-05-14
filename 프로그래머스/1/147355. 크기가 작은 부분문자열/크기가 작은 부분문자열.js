@@ -1,11 +1,9 @@
 function solution(t, p) {
-    var answer = 0;
-    const plength = p.length;
-    t.split("").forEach((start, index)=>{
-        const sliceStr = t.slice(index, index + plength)
-        if (sliceStr.length === plength) {
-            answer += (Number(sliceStr) <= Number(p));
+    let res = 0
+    for (let i = 0; i < t.length - p.length + 1; i++){
+        if (Number(t.substr(i, p.length)) <= Number(p)) {
+            res++;
         }
-    })
-    return answer;
+    }
+    return res
 }
