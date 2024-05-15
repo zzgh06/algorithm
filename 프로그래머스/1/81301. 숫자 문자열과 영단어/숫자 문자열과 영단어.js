@@ -1,7 +1,7 @@
 function solution(s) {
-    const alpha = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    alpha.forEach((word, idx)=>{
-        // 문자열의 구분자로 배열의 값을 활용하고 idx를 활용하여 배열의 값을 연결
+    let numWord = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    numWord.forEach((word, idx)=>{
+        // word로 구분하고 idx 기준으로 합친다
         s = s.split(word).join(idx)
     })
     return Number(s)
