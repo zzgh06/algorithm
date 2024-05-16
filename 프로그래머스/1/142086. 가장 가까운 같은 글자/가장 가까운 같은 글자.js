@@ -1,16 +1,16 @@
 function solution(s) {
-    let result = []; 
-    let tmp = []; 
-    
-    for(let i = 0; i < s.length; i++){
-        if(!tmp.includes(s[i])){
-            result.push(-1); // -1 -1 -1
-            tmp.push(s[i]); // b a n
-        } else if(tmp.includes(s[i])){
-            result.push(i - tmp.lastIndexOf(s[i])); // -1 -1 -1 2 2 2 
-            tmp.push(s[i]); // b a n a n a
+    let temp = [];
+    let answer =[]
+    for (let i = 0; i < s.length; i++){
+        // temp array 안에 s[i]가 없다면 temp.push(s[i])
+        // answer.push(-1)
+        if (!temp.includes(s[i])){
+            answer.push(-1)
+            temp.push(s[i])
+        } else {
+            answer.push(i - temp.lastIndexOf(s[i]))
+            temp.push(s[i])
         }
-        
     }
-    return result;
+    return answer;
 }
