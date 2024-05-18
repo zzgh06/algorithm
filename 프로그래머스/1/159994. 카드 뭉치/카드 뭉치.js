@@ -6,11 +6,12 @@
 function solution(cards1, cards2, goal) {
     let cnt = 0
     for (let i = 0; i < goal.length; i++){
-        if (cards1[0] === goal[i]) {
-            cards1.shift()
+        if (cards1[0] === goal[i]){
+            cards1.shift();
             cnt++;
-        } else if (cards2[0] === goal[i]) {
-            cards2.shift()
+        }
+        if (cards2[0] === goal[i]){
+            cards2.shift();
             cnt++;
         }
     }
