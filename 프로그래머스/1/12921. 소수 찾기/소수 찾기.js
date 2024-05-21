@@ -3,15 +3,18 @@
 // 1. n까지 모든 수는 소수라고 가정
 // 2. 0과 1은 소수가 아니라서 제외
 // 3. 2부터 ~ 제곱근까지 비교 (제곱근 이후의 배수들은 이미 삭제)
-
-function solution(num) {
-    const numArr = [false, false, ...Array(num - 1).fill(true)];
-    for (let i = 2; i * i <= num; i += 1) {
-        if (numArr[i]) {
-            for (let j = i * 2; j <= num; j += i) {
-                numArr[j] = false; 
+function solution(n) {
+    let primes = Array(n + 1).fill(true).fill(false, 0, 2);
+    // [false,false,true,true,true,true]
+    for (let i = 2; i * i <= n; i++) {
+        // console.log(i) 3
+        if (primes[i]) {
+            // console.log(primes[i]) // true
+            for (let j = i * i; j <= n; j += i) {
+                // console.log(j) 4
+                primes[j] = false;
             }
         }
     }
-    return numArr.filter(Boolean).length;
+    return primes.filter((e) => e).length;
 }
