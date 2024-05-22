@@ -7,27 +7,23 @@
 // 7. 실패율에 따른 내림차순 정렬
 // 8. 내림차순 정렬된 key 값만 출력
 function solution(N, stages) {
-    var answer = [];
-    let hashMap = new Map();
-    
+    let answer = [];
+    let hashmap = new Map();
     for (let i = 1; i <= N; i++){
         let clear = 0;
-        let failure = 0;
+        let fail = 0;
         let failureRate = 0;
         for (let j = 0; j < stages.length; j++){
-            if (stages[j] === i){
-                failure += 1
+            if (stages[j] >= i) {
+                clear++;
+            }
+            if (stages[j] === i) {
+                fail++;
             }
         }
-        for (let k = 0; k < stages.length; k++){
-            if (stages[k] >= i){
-                clear += 1
-            }
-        }
-        failureRate = failure / clear
-        hashMap.set(i, failureRate)
+        failureRate = fail / clear;
+        hashmap.set(i, failureRate)
     }
-    let sortedHashMap = [...hashMap].sort((a, b)=> b[1] - a[1]);
-    answer = sortedHashMap.map(hash => hash[0])
-    return answer
+    let hashmapSort = [...hashmap].sort((a, b)=>b[1] - a[1]);
+    return hashmapSort.map(hash => hash[0]);
 }
