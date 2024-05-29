@@ -3,20 +3,19 @@
 // hash에서 completion의 배열을 key 값으로 이용해서 일치할 경우 -1
 function solution(participant, completion) {
     let hashMap = new Map();
-    
     participant.forEach((participant)=>{
-        if (hashMap.get(participant)){
-            hashMap.set(participant, hashMap.get(participant) + 1)
-        } else {
+        if (!hashMap.get(participant)){
             hashMap.set(participant, 1)
+        } else {
+            hashMap.set(participant, hashMap.get(participant) + 1)
         }
     })
     completion.forEach((completion)=>{
-        if (hashMap.get(completion)) {
-            hashMap.set(completion, hashMap.get(completion) -1)
-        }
+       if (hashMap.get(completion)){
+           hashMap.set(completion, hashMap.get(completion) - 1)
+       }
     })
-    for(const [key, value] of hashMap) {
+    for (let [key, value] of hashMap) {
         if (value > 0) {
             return key
         }
