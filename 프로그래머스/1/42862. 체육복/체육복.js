@@ -9,10 +9,15 @@ function solution(n, lost, reserve) {
     let reserve_student = reserve.filter(r => !lost.includes(r)).sort((a, b) => a - b);
     
     for (let i = 0; i < reserve_student.length; i++) {
+        // 앞번호
         if (lost_student.includes(reserve_student[i] - 1)) {
-            lost_student = lost_student.filter(v => v !== reserve_student[i] - 1);
-        } else if (lost_student.includes(reserve_student[i] + 1)) {
-            lost_student = lost_student.filter(v => v !== reserve_student[i] + 1);
+            lost_student = lost_student.filter(v => v !== reserve_student[i] - 1); // 0
+            console.log(lost_student)
+        } 
+        // 뒤번호
+        else if (lost_student.includes(reserve_student[i] + 1)) {
+            lost_student = lost_student.filter(v => v !== reserve_student[i] + 1); // 2
+            console.log(lost_student)
         }
     }
     return n - lost_student.length;
