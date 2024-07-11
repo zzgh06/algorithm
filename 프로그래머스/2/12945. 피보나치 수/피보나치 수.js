@@ -1,7 +1,7 @@
 function solution(n) {
-    const number = [0, 1];
-    for(let i = 2; i <= n; i++){
-        number.push((number[i-1] + number[i-2]) % 1234567);
+    let arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        arr.push((arr[i-1] + arr[i-2]) % 1234567)
     }
-    return number[number.length -1]
+    return arr[arr.length -1]
 }
