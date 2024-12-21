@@ -1,6 +1,4 @@
 function solution(arr) {
-    let minNum = Math.min(...arr)
-    let answer = arr
-    answer.splice(arr.indexOf(minNum), 1)
-    return answer.length >= 1 ? answer : [-1]
+    let ans = arr.filter(e => e !== Math.min(...arr))
+    return ans.length === 0 ? [-1] : ans
 }
