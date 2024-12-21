@@ -1,7 +1,7 @@
 function solution(numbers) {
-    let result = 0;
-    for (let i = 0; i <= 9; i++) {
-        if (!numbers.sort().includes(i)) result += i;
+    let sum = 0
+    for (let i = 0; i < 10; i++) {
+        if (!numbers.includes(i)) sum += i
     }
-    return result;
+    return sum
 }
