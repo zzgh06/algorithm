@@ -1,12 +1,13 @@
 function solution(d, budget) {
-    var answer = 0;
-    const dSort= d.sort((a, b) => (a-b))
-    for (let i = 0; i < dSort.length; i++) {
-        budget -= dSort[i]
-        if (budget < 0){
-            break
+    let ans = 0
+    let depart = d.sort((a, b) => a - b)
+    depart.forEach((ele) => {
+        if (budget >= ele) {
+            budget -= ele
+            ans++
+        } else {
+            return ans
         }
-        answer++;
-    }
-    return answer
+    })
+    return ans
 }
