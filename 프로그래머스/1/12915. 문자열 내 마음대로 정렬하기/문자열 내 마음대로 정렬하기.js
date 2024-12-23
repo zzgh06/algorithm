@@ -1,3 +1,3 @@
 function solution(strings, n) {
-    return strings.sort().sort((a, b) => a[n] < b[n] ? -1 : a[n] > b[n] ? 1 : 0)
+    return strings.sort().sort((a, b) => a[n] < b[n] ? -1 : 0)
 }
