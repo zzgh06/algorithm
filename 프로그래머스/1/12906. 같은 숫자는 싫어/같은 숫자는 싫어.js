@@ -1,13 +1,13 @@
-
-function solution(arr) {
+function solution(arr)
+{
+    let answer = [];
     let beforeNum;
-    let newArr = [];
-    
-    arr.forEach((num, index)=>{
-        if (beforeNum !== num){
-            newArr.push(num)
+
+    arr.forEach((ele, i) => {
+        if (beforeNum !== ele) {
+            answer.push(ele)
         }
-        beforeNum = num
+        beforeNum = ele
     })
-    return newArr
+    return answer;
 }
