@@ -4,12 +4,14 @@
 // 3. 피인용수가 논문수보다 작아지기 시작하는 숫자
 
 function solution(citations) {
-    var answer = 0;
-    citations.sort((a, b) => b - a);
+    let ans = 0
+    citations.sort((a, b) => b - a)
+    // console.log(citations) [ 6, 5, 3, 1, 0 ]
     for (let i = 0; i < citations.length; i++){
-        if (citations[i] > i) {
-            answer++;
+        console.log(citations[i], i + 1)
+        if (citations[i] >= i + 1) {
+            ans++;
         }
     }
-    return answer;
+    return ans
 }
