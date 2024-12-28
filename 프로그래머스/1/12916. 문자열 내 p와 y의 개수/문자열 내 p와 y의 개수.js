@@ -1,7 +1,6 @@
 function solution(s){
-    var answer = true;
-    let P = s.toUpperCase().split('P').length - 1;
-    let Y = s.toUpperCase().split('Y').length - 1;
-
-    return P === Y ? true : false
+    let pLength = s.split('').map(x => x.toUpperCase()).filter(p => p === 'P').length
+    let yLength = s.split('').map(x => x.toUpperCase()).filter(y => y === 'Y').length
+    
+    return pLength === yLength ? true : false
 }
